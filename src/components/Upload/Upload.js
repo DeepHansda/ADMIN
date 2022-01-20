@@ -11,26 +11,18 @@ function Upload() {
     const [images,setImages] = useState([])
     const dispatch = useDispatch()
 
-    const handleMultipleImages =(evnt)=>{
-        const selectedFIles =[];
-        const targetFiles =evnt.target.files;
-        const targetFilesObject= [...targetFiles]
-        targetFilesObject.map((file)=>{
-        return selectedFIles.push(URL.createObjectURL(file))
-        })
-        setImages(selectedFIles);
-      }
-      console.log(images)
+    console.log(images)
 
-      var data = {
-        cake_name: cakeName,
-        cake_description: desc,
-          weight: weight,
-          price: price,
-          images:images.raw
-      }
 
       const submitHandler = (e)=>{
+          const data = new FormData();
+          data.append('cake_name',cakeName)
+          data.append('cake_description',desc)
+          data.append('weight',weight)
+          data.append('price',price)
+          for (let i = 0; i < images.length; i++) {
+            data.append('images', images[i]);                      
+        }
           e.preventDefault()
           dispatch(addCake(data)).then((res)=> console.log(res))
       }
@@ -82,7 +74,7 @@ function Upload() {
 
                                             <div class="input-group mb-3">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="inputGroupFile02" multiple = 'multiple' accept='img/*' onChange={handleMultipleImages}/>
+                                                <input type="file" class="custom-file-input" id="inputGroupFile02" multiple = 'multiple' accept='img/*' onChange={(e)=>setImages(e.target.files)} multiple/>
                                                 <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
                                             </div>
                                             

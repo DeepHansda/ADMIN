@@ -2,6 +2,6 @@ import axios from "axios";
 
 export default axios.create(
     { 
-        baseURL : "http://localhost:3400/"
+        baseURL : "https://cake-store-api.herokuapp.com/"
     }
   )
