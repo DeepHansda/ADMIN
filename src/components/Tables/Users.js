@@ -1,6 +1,8 @@
-import React from 'react';
-import TableRow from '../Table_Row/TableRow';
-function NormalTable(){
+import React,{useState,useEffect} from 'react';
+import TableRow from '../Users_Row/TableRow';
+function NormalTable()
+{
+
     return(
         <>
         
@@ -15,17 +17,12 @@ function NormalTable(){
                                             <table id="tableedit" className="table display responsive nowrap table-light table-bordered">
                                                 <thead className="thead-light">
                                                     <tr>
+                                                    <th>Date Of Joining</th>                                                
                                                         <th>Name</th>
-                                                        <th>Position</th>
-                                                        <th>Office</th>
-                                                        <th>Age</th>
-                                                        <th>Start date</th>
-                                                        <th>Salary</th>
-                                                        <th>Salary</th>
-                                                        <th>Salary</th>
-                                                        <th>Salary</th>
-                                                        <th>Salary</th>
-                                                        <th>Salary</th>
+                                                        <th>Email</th>
+                                                        <th>Phone Number</th>
+
+                                                        <th>Address</th>
                                                     </tr>
                                                 </thead>
                                                 <TableRow/>

@@ -1,5 +1,5 @@
 import React from 'react'
-import TableRow from '../Table_Row/TableRow'
+// import TableRow from '../Table_Row/TableRow'
 
 function Dashboard() {
     return(
@@ -22,7 +22,7 @@ function Dashboard() {
                                                         <th scope="col">Handle</th>
                                                     </tr>
                                                 </thead>
-                                                <TableRow/>
+                                                {/* <TableRow/> */}
                                             </table>
                                         </div>
                                     </div>
