@@ -8,10 +8,10 @@ function Upload() {
     const [desc,setDesc] =useState('')
     const [weight,setWeight] =useState('')
     const [price,setPrice] =useState('')
+    const [mobileNumber,setMobileNumber] =useState('')
     const [images,setImages] = useState([])
     const dispatch = useDispatch()
 
-    console.log(images)
 
 
       const submitHandler = (e)=>{
@@ -20,6 +20,7 @@ function Upload() {
           data.append('cake_description',desc)
           data.append('weight',weight)
           data.append('price',price)
+          data.append('mobile_number',mobileNumber)
           for (let i = 0; i < images.length; i++) {
             data.append('images', images[i]);                      
         }
@@ -69,8 +70,15 @@ function Upload() {
                                                     <label for="inputZip">Price*</label>
                                                     <input type="text" class="form-control" id="inputZip" placeholder="Price" value = {price} onChange={(e)=>setPrice(e.target.value)}/>
                                                 </div>
+
+
+                                                
                                             </div>
-                                                <h5>Upload 5 Images Maximum 80kb Size *</h5>
+                                                <div class="form-group">
+                                                <label for="inputAddress">Enter Your Company's Mobile Number*</label>
+                                                <input type="text" class="form-control" id="inputAddress" placeholder="Mobile Number" value ={mobileNumber} onChange={(e)=>setMobileNumber(e.target.value)}/>
+                                                </div>
+                                                {/* <h5>Upload 5 Images Maximum 80kb Size *</h5>
 
                                             <div class="input-group mb-3">
                                             <div class="custom-file">
@@ -78,7 +86,7 @@ function Upload() {
                                                 <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
                                             </div>
                                             
-                                        </div>
+                                        </div> */}
                                         
                                             
                                             <button type="submit" class="btn btn-primary">Upload</button>

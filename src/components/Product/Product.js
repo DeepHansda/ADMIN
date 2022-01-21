@@ -37,7 +37,7 @@ const dispatch = useDispatch()
   return (
     <div class="col-xxl-3 col-xl-4  col-sm-6">
       <div class="card card-statistics contact-contant">
-        <img class="card-img-top" src={product.images[0].filePath} alt="Card image cap" />
+        <img class="card-img-top" src={slide} alt="Card image cap" />
         <div class="card-body py-4">
           <div class="d-flex align-items-center"></div>
             <form onSubmit={submitHandler}>
@@ -104,6 +104,12 @@ const dispatch = useDispatch()
                 ) : (
                   <p>{product.cake_description}</p>
                 )}
+              </li>
+            </ul>
+
+            <ul class='nav'>
+              <li class='nav-item'>
+                <h4>Baker Number : {product.mobile_number}</h4>
               </li>
             </ul>
 
