@@ -22,11 +22,11 @@ function BakerModal({setOpen,open,name}){
     const submitHandler = (e) => {
         e.preventDefault()
        if(name == "Baker"){
-           dispatch(addBaker(data)).then((res) =>console.log(res))
+           dispatch(addBaker(data)).then((res) =>console.log(res),(err) =>console.log(err))
        }
        else{
         
-        dispatch(addShipper(data)).then((res) =>console.log(res))
+        dispatch(addShipper(data)).then((res) =>console.log(res),(err) =>console.log(err))
        }
     }
 

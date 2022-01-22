@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import {adminLogin,adminSignup} from '../../Redux/actions/actions'
 import {useDispatch} from 'react-redux'
 import { Route, Routes,useNavigate } from 'react-router-dom';
+import img from '../../assets/img/264816-P5FDHW-384.png'
 import Cookies from 'js-cookie';
 
 
@@ -13,6 +15,7 @@ function Auth({setSideBar}) {
   const [isSignUp, setIsSignUp] = useState(false);
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
 
 const data = {
@@ -61,17 +64,20 @@ const thenHandle = async ()=>{
                         {isSignUp && <div class="form-group">
                           <label class="control-label">Enter Role*</label>
                           <input
+                            {...register("userRole",{required: true})}
                             class="form-control"
                             type="text"
                             value={role}
                             onChange={(e) => setRole(e.target.value)}
                             placeholder="Enter The Role"
                           />
+                          {errors.userRole && <span style={{color:'red'}}>This field is required</span>}
                         </div>}
 
                         {isSignUp && <div class="form-group">
                           <label class="control-label">Email Id*</label>
                           <input
+                            {...register("sEmail",{required: true})}
                             class="form-control"
                             type="email"
                             value={email}
@@ -79,6 +85,7 @@ const thenHandle = async ()=>{
                             id="email"
                             placeholder="Enter Email Address"
                           />
+                          {errors.sEmail && <span style={{color:'red'}}>Please Enter Email Address</span>}
                         </div>}
                       </div>
                       {/* {isSignUp ? null : (<div style={{ textAlign: "center", width: "100%" }}>
@@ -88,12 +95,15 @@ const thenHandle = async ()=>{
                         <div class="form-group">
                           <label class="control-label">Phone Number*</label>
                           <input
+                            // {...register("sNumber",{required: true,min:10})}
                             class="form-control"
                             type="number"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             placeholder="Eenter Phone Number"
                           />
+                          {/* {errors.sNumber && <span style={{color:'red'}}>Please Enter 10 Digit Mobile Number</span>} */}
+
                         </div>
                       </div>
 
@@ -101,12 +111,15 @@ const thenHandle = async ()=>{
                         <div class="form-group">
                           <label class="control-label">Password*</label>
                           <input
+                          // {...register("sPassword",{required:true,minLength:10})}
                             class="form-control"
                             type="text"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Enter Password"
                           />
+                          {/* {errors.sPassword && <span style={{color:'red'}}>Please Enter a Password Which Contain 8 Characters</span>} */}
+
                         </div>
                       </div>
 
@@ -131,8 +144,8 @@ const thenHandle = async ()=>{
             </div>
             <div class="col-sm-6 col-xxl-9 col-lg-7 bg-gradient o-hidden order-1 order-sm-2">
               <div class="row align-items-center h-100">
-                <div class="col-7 mx-auto ">
-                  <img class="img-fluid" src="assets/img/bg/login.svg" alt="" />
+                <div class="row h-10 ">
+                  {/* <img style={{maxWidth:"100%",height:"100vh",objectFit:'cover'}} src={img} alt="" /> */}
                 </div>
               </div>
             </div>
